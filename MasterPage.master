@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <script src="Reference/JavaScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="Reference/StyleSheet.css" />
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parents('li').addClass('active');
+            }
+        });
+    });
+</script>
+    
+
+    <title>Accelerate Task</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    
+<body>
+    <form id="form1" runat="server">
+    <div id="header"> 
+        Accelerate Task
+        <br />
+        <br />
+        
+        <asp:Button ID="Button1" style="float:right ; margin: 2px ; color:burlywood" runat="server" Height="29px" Text="Dashboard" OnClick="Button1_Click" Width="75px" />
+        
+    </div>
+
+    <div id="main">
+        <div class="topnav" id="myTopnav">
+            <a href="Default.aspx" onload="">Project Summary
+        <a href="Research.aspx">Research</a>
+        <a href="Commercial.aspx">Commercial</a>
+        <a href="Supply.aspx">Supply</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars" style="color:aqua"></i>
+        </a>
+    </div>
+
+        <asp:ContentPlaceHolder id="BodyContent" runat="server">
+            <p>
+                <br />
+            </p>
+        </asp:ContentPlaceHolder>
+    </div>
+        <div id="footer">Footer</div>
+    </form>
+
+</body>
+    
+</html>
